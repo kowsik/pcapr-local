@@ -1,0 +1,6 @@
+<div>
+    <%= stats.pcaps || 0 %> pcaps, 
+    <%= stats.flows || 0 %> flows,
+    <%= stats.packets || 0 %> packets,
+    <%= closet.quantity.bytes(stats.bytes || 0) %>
+</div>

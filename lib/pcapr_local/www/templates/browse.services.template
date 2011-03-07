@@ -1,0 +1,10 @@
+<div class="cloud" style="margin-top:10px;margin-bottom:10px">
+    <% closet.render.cloud(kvs, function(kv, size) { %>
+        <span style="font-size:<%= size %>px">
+            <a class="term" title="<%= kv.key %>" href="#/browse/service/<%= escape(kv.key) %>">
+                <%= closet.util.escapeHTML(kv.key) %>
+            </a>
+            <sup style="font-size:10px"><%= kv.value %></sup>
+        </span>
+    <% }); %>
+</div>

@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+libdir = File.dirname(__FILE__) + "/../lib"
+libdir = File.expand_path(libdir)
+$: << libdir
+
+require 'pcapr_local'
+require 'optparse'
+
+include PcaprLocal
+
+config_file = nil
+opts = OptionParser.new do |opts|
+    opts.banner = "Usage: #{$0} [-f config_file]"
+    opts.on('-f', '--config_file FILE', 'Config file') do |f|
+        config_file = f
+    end
+    opts.on_tail('-h', '--help', 'Show this message') do
+        puts opts
+        exit 0
+    end
+end
+opts.parse!
+
+config_file ||= PcaprLocal::Config.user_config_path
+
+if File.exist?(config_file)
+    config = PcaprLocal::Config.config config_file
+    PcaprLocal.stop config
+end
+

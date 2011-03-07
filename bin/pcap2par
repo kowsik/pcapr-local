@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+# Copyright (C) 2008 Mu Dynamics, Inc
+#
+# This program is confidential and proprietary to Mu Dynamics, Inc and
+# may not be reproduced, published or disclosed to others without its
+# authorization.
+
+libdir = File.dirname(__FILE__) + "/../lib"
+libdir = File.expand_path(libdir)
+$: << libdir
+
+require 'pcapr_local'
+require 'optparse'
+require 'mu/pcap'
+require 'mu/scenario/pcap'
+
+options = {
+    :isolate_l7 => false
+}
+
+opts = OptionParser.new do |opts|
+    opts.banner =
+        "Usage: pcap2par [options] <pcap> [export file]"
+    opts.on('-i', '--isolate', 'Include only TCP/UDP/SCTP traffic (excluding  DNS, DHCP)') do
+        options[:isolate_l7] = true
+    end
+    opts.on_tail('-h', '--help', 'Show this message') do
+        puts opts
+        exit 0
+    end
+end
+
+argv = opts.parse!
+unless argv.size == 1 or argv.size == 2
+    $stderr.puts opts
+    exit 1
+end
+
+pcap    = argv[0]
+archive = argv[1] || "export.par"
+io = Mu::Scenario::Pcap.export_to_par pcap, options
+archive_io = open(archive, 'wb')
+while block=io.read(4096)
+    archive_io.print block
+end
+
+puts "export is located at #{archive}"

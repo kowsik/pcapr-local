@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+libdir = File.dirname(__FILE__) + "/../lib"
+libdir = File.expand_path(libdir)
+$: << libdir
+
+require 'pcapr_local'
+require 'optparse'
+
+config_file = nil
+debug_mode = false
+opts = OptionParser.new do |opts|
+    opts.banner = "Usage: #{$0} [-f config_file]"
+    opts.on('-f', '--config_file FILE', 'Config file') do |f|
+        config_file = f
+    end
+    opts.on('-d', '--debug_mode', 'Run in debug mode (server runs in foreground)') do 
+        debug_mode = true
+    end
+    opts.on_tail('-h', '--help', 'Show this message') do
+        puts opts
+        exit 0
+    end
+end
+opts.parse!
+
+config = PcaprLocal::Config.config config_file
+if debug_mode
+    config["debug_mode"] = true
+    # log to stdout
+    config["log_dir"] = nil 
+else
+    config["debug_mode"] = false
+end
+
+
+PcaprLocal.start config
+

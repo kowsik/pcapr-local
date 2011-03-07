@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+xtractr = File.dirname(__FILE__) + "/../lib/exe/xtractr"
+xtractr = File.expand_path xtractr
+exec xtractr, *ARGV

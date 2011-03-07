@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="/static/image/favicon.ico"/>
+    <title>pcapr.Local - A place to organize your packet captures</title>
+    
+    <link rel="stylesheet" type="text/css" href="/static/style/page.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/c3p0.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/jquery.suggest.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/tipsy.css" media="all"/>
+    
+    <script type="text/javascript" src="/static/script/json2.js">
+	</script>
+	
+    <script type="text/javascript" src="/static/script/jquery/jquery-1.4.2.min.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery-ui.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.ui.core.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.ui.widget.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.ui.sortable.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.ui.slider.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.form.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.menu.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.suggest.js">
+	</script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.flot.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.flot.stack.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.flot.selection.js">
+    </script>
+    <script type="text/javascript" src="/static/script/jquery/jquery.jsonp.min.js">
+    </script>
+    <script type="text/javascript" src="/static/script/tipsy/jquery.tipsy.js">
+    </script>
+    
+    <script type="text/javascript" src="/static/script/sammy/sammy.js">
+    </script>
+    <script type="text/javascript" src="/static/script/sammy/plugins/sammy.template.js">
+    </script>
+    <script type="text/javascript" src="/static/script/sammy/plugins/sammy.cache.js">
+    </script>
+	
+    <script type="text/javascript" src="/static/script/closet/closet.api.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.util.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.quantity.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.render.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.folders.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.mr.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.options.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.report.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.reports.visualize.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.reports.overview.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.reports.tcp.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.reports.http.js">
+    </script>
+    <script type="text/javascript" src="/static/script/closet/closet.reports.sip.js">
+    </script>
+    
+    
+    <script type="text/javascript" src="/static/script/closet/async.js">
+    </script>
+    
+   
+    <script type="text/javascript">
+        (function($) {
+            $(function() { closet.load(); });
+        }(jQuery));
+    </script>
+</head>
+<body id="page_bg" class="f-default">
+<div id="container">
+<div id="mainbody">
+<div class="wrapper">
+<div class="content beta">
+    <div style="float:left;font-size:large;margin-top:6px;margin-left:5px;padding-right:40px">
+        <a style="text-decoration:none;outline:none" href="http://www.mudynamics.com">
+            <img class="icon" src="/static/image/favicon.png"/>
+        </a>
+        <span style="font-weight:bold;letter-spacing:0.1em">pcapr.Local</span>
+    </div>
+        
+    <div class="browse">
+        <div class="floater" style="float:right">
+            <table style="display:inline">
+                <tr>
+                    <td><img class="icon" src="/static/image/16x16/Search.png"/></td>
+                    <td><input id="search" type="text"/>&nbsp;</td>
+                    <td>
+                        <div class="statistics" style="float:right"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <ul class="tab">
+            <li class="active">
+                <a id="browse" href="#/browse"><span>Browse</span></a>
+            </li>
+            <li>
+                <a id="folders" href="#/folders"><span>Folders</span></a>
+            </li>
+            <li>
+                <a id="services" href="#/services"><span>Services</span></a>
+            </li>
+        </ul>
+        <div class="browse-tab">
+        </div>
+    </div>
+    
+    <div class="footer">
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

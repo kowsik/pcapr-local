@@ -1,0 +1,38 @@
+<div>
+<% if (flows.length > 0) { %>
+<span class="info">
+    We found <%= closet.quantity.count(flows.length, 'candidate flow') %>. 
+    Select one to create a scenario!
+</span>
+<table id="flows-table">
+    <colgroup span="8"/>
+    <colgroup span="1" style="width:100%"/>
+    <thead>
+        <tr>
+            <td>id</td>
+            <td><span style="visibility:hidden">&#9660;</span><span class="time">time</span></td>
+            <td>packets</td>
+            <td><span style="visibility:hidden">&#9660;</span><span class="src">src</span></td>
+            <td>sport</td>
+            <td><span style="visibility:hidden">&#9660;</span><span class="dst">dst</span></td>
+            <td><span class="dport">dport</span></td>
+            <td><span style="visibility:hidden">&#9660;</span><span class="service">service</span></td>
+            <td>title</td>
+        </tr>
+    </thead>
+    <% $.each(flows, function(_, flow) { %>
+    <tr class="flow">
+        <td><%= flow.id %>.</td>
+        <td><span class="field" id="flow.time"><%= flow.time.toFixed(4) %></span></td>
+        <td><span class="term" href="#/packets?pkt.flow:<%= escape(flow.id) %>"><%= escape(flow.packets) %></span></td>
+        <td><span class="term field" id="flow.src"><%= closet.util.escapeHTML(flow.src) %></span></td>
+        <td><span class="term"><%= flow.sport %></span></td>
+        <td><span class="term field" id="flow.dst"><%= closet.util.escapeHTML(flow.dst) %></span></td>
+        <td><span class="term" id="flow.dport"><%= flow.dport %></span></td>
+        <td><span class="term field" id="flow.service"><%= closet.util.escapeHTML(flow.service) %></span></td>
+        <td><a href="#/browse/pcap/<%= escape(pcap._id) %>/flow/<%= escape(flow.id) %>"><%= closet.util.escapeHTML(flow.title) %></a></td>
+    </tr>
+    <% }); %>
+</table>
+<% } %>
+</div>

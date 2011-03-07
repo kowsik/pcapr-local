@@ -1,0 +1,35 @@
+<div>
+    <% $.each(calls, function(_, call) { %>
+        <div>
+            Call <span style="font-weight:bold"><%= closet.util.escapeHTML(call.src) %></span>
+            &nbsp;&raquo;&nbsp;
+            <span style="font-weight:bold"><%= closet.util.escapeHTML(call.dst) %></span>
+            &nbsp;
+            [<span style="font-size:smaller"><%= closet.util.escapeHTML(call.id) %></span>]
+        </div>
+        <div style="margin-left: 20px">
+            This call was made from <span style="font-weight:bold"><%= closet.util.escapeHTML(call.from) %></span> to 
+            <span style="font-weight:bold"><%= closet.util.escapeHTML(call.to) %></span> and is made up 
+            of <%= closet.quantity.count(call.flows.length,'flow') %> and
+            <%= closet.quantity.count(call.packets,'packet') %>.
+            
+            <% if (call.rtp.length > 0) { %>
+                We also found <%= closet.quantity.count(call.rtp.length,'RTP stream') %> in this call 
+                with the following media types:
+                <ul>
+                <% $.each(call.media, function(_, media) {%>
+                    <li style="list-style: disc outside !important">
+                        <%= closet.util.escapeHTML(media) %>
+                    </li>
+                <% }); %>
+                </ul>
+            <% } %>
+
+            <div>
+            <img class="icon" src="/static/image/16x16/Download.png"/>
+            Download <a href="/pcaps/1/pcap/<%= escape(pcap._id) %>/api/packets/slice?q=<%=escape(call.q)%>">pcap</a> for this call.
+            </div>
+            <p/>
+        </div>
+    <% }); %>
+</div>

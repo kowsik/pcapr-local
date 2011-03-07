@@ -1,0 +1,77 @@
+<% if (pcaps.filter) {%>
+<span style="float:right">
+    <img class="icon" src="/static/image/16x16/Cancel.png"/>
+    <a href="#/browse">remove filter</a>
+</span>
+<% } %>
+
+<ul id="p-main" class="s-result pcaps" style="margin-left: -40px">
+    <% $.each(pcaps.rows.slice(0, Math.min(closet.api.PAGE_SIZE, pcaps.rows.length)), function(i, row) { %>
+    <li class="l0">
+        <div class="p-body">
+            <% if (row.doc.index) { %>
+                <% var paths = row.doc.filename.split('/'); %>
+                <a class="term" href="#/browse/dir/">/</a>
+                <% $.each(paths.slice(0, paths.length-1), function(k, path) {%>
+                    <a class="term" href="#/browse/dir/<%= escape(paths.slice(0,k+1).join('/')) %>">
+                        <%= closet.util.escapeHTML(path) %>
+                    </a> /
+                <% }); %>
+                <a href="#/browse/pcap/<%= escape(row.id) %>"><%= closet.util.escapeHTML(paths[paths.length-1]) %></a>
+            <% } else if (row.doc.status === 'indexing') { %>
+                <span class="throbber"/>
+                <span style="font-size:125%;font-weight:bold;color:#e66c25">
+                    <%= closet.util.escapeHTML(row.doc.filename) %>
+                </span>
+            <% } else if (row.doc.status === 'failed' || row.doc.status === 'aborted') { %>
+                <a id="<%= row.doc._id %>" class="remove" href="javascript:void(0)">
+                    <img class="icon" src="/static/image/16x16/Cancel.png"/>
+                </a>
+                <span style="font-size:125%;font-weight:bold;color:#dd1122">
+                    <%= closet.util.escapeHTML(row.doc.filename) %>
+                </span>
+            <% } else {%>
+                <span style="font-size:125%;font-weight:bold;color:grey">
+                    <%= closet.util.escapeHTML(row.doc.filename) %>
+                </span>
+            <% } %>
+        </div>
+        <% if (row.doc.index) { %>
+            <div class="p-protos">
+                <span>services: </span>
+                <% var services = row.doc.index.services.sort(); %>
+                <% $.each(services.slice(0,10), function(j, service) { %>
+                    <a class="meta-proto" href="#/browse/service/<%= escape(service) %>">
+                        <%= closet.util.escapeHTML(service) %>
+                    </a>
+                <% }); %>
+                <% if (services.length > 10) { %>
+                    <span>(<%= services.length-10 %> more)</span>
+                <% } %>
+            </div>
+        <% } %>            
+        <div style="font-size: smaller">
+            <a href="#/browse/status/<%= escape(row.doc.status) %>">
+                <%= closet.util.escapeHTML(row.doc.status) %>
+            </a>, 
+            <%= closet.quantity.timespan(new Date(row.doc.created_at)) %>, 
+            <%= closet.quantity.bytes(row.doc.stat.size) %>
+            <% if (row.doc.index) { %>
+                <span>, 
+                <%= closet.quantity.count(row.doc.index.about.flows,'flow') %>, 
+                <%= closet.quantity.count(row.doc.index.about.packets,'packet') %>,
+                <%= row.doc.index.about.duration %> seconds
+                </span>
+            <% } %>
+        </div>
+    </li>
+    <% }); %>
+</ul>
+
+<% if (pcaps.rows.length === closet.api.PAGE_SIZE+1) { %>
+    <div style="margin-left: 20px">
+        <span>&raquo;&nbsp;</span>
+        <% var last = pcaps.rows[pcaps.rows.length-1]; %>
+        <a href="<%= path %>?nextkey=<%= escape(JSON.stringify(last.key)) %>&nextid=<%= escape(last.id) %>">more</a>
+    </div>
+<% } %>

@@ -1,0 +1,63 @@
+<div style="margin-top:20px;margin-bottom:20px">
+<div class="p-body">
+    <% if (pcap.index) { %>
+        <% var paths = pcap.filename.split('/'); %>
+        <a class="term" href="#/browse/dir/">/</a>
+        <% $.each(paths.slice(0, paths.length-1), function(k, path) {%>
+            <a class="term" href="#/browse/dir/<%= escape(paths.slice(0,k+1).join('/')) %>">
+                <%= closet.util.escapeHTML(path) %>
+            </a> /
+        <% }); %>
+        <a class="extern" href="/pcaps/1/pcap/<%= escape(pcap._id) %>">
+            <%= closet.util.escapeHTML(paths[paths.length-1]) %>
+        </a>
+    <% } else if (pcap.status === 'indexing') { %>
+        <span class="throbber"/>
+        <span style="font-size:125%;font-weight:bold;color:#e66c25">
+            <%= closet.util.escapeHTML(pcap.filename) %>
+        </span>
+    <% } else if (pcap.status === 'failed') { %>
+        <span style="font-size:125%;font-weight:bold;color:#dd1122">
+            <%= closet.util.escapeHTML(row.doc.filename) %>
+        </span>
+    <% } else {%>
+        <span style="font-size:125%;font-weight:bold;color:grey">
+            <%= closet.util.escapeHTML(row.doc.filename) %>
+        </span>
+    <% } %>
+</div>
+<div style="font-size: smaller">
+    <a href="#/browse/status/<%= escape(pcap.status) %>"><%= pcap.status %></a>, 
+    <%= closet.quantity.timespan(new Date(pcap.created_at)) %>, 
+    <%= closet.quantity.bytes(pcap.stat.size) %>
+    <% if (pcap.index) { %>
+        <span>, 
+        <%= closet.quantity.count(pcap.index.about.flows,'flow') %>, 
+        <%= closet.quantity.count(pcap.index.about.packets,'packet') %>,
+        <%= pcap.index.about.duration %> seconds
+        </span>
+    <% } %>
+</div>
+<p/>
+<div class="reports">
+    <span class="showonload" style="display:none">
+        Reports:&nbsp;<select class="reports" style="padding-right:20px"></select>
+    </span>
+    <h3 class="title"></h3>
+    <div class="settings" style="display:none; margin-top:-10px">
+        <span style="color:#105892">&#9658;</span>
+        <a class="toggler" href="javascript:void(0)">Settings</a>
+        <div class="options" style="display:none;margin-left:20px;border-left:2px dotted #d0d0d0;padding-left:10px">
+        </div>
+    </div>
+    <div class="report" style="margin-top:20px">
+        <p/><span class="throbber">analyzing</span>
+    </div>
+</div>
+
+<div style="font-size: smaller">
+        Download a
+        <a target="_none" href="/pcaps/1/export_to_par/<%= escape(pcap._id) %>">PAR file </a>
+        .
+</div>
+</div>

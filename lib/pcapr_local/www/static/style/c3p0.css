@@ -1,0 +1,116 @@
+ul.tab a {
+    outline: none;
+}
+
+#flows-table thead, #packets-table thead {
+    font-weight: bold;
+}
+
+.top thead {
+    font-weight: bold;
+}
+
+.top tbody td {
+    border-left: 1px solid #a0a0a0; 
+    padding-left: 10px;
+}
+
+#flows-table tr.flow:hover, #packets-table tr.pkt:hover {
+    background: #dddddd;
+}
+
+#flows-table, #packets-table {
+    white-space: nowrap;
+}
+
+table#packets-table div#fields {
+    overflow-x:hidden; 
+    width:100%;
+    white-space: nowrap;
+}
+
+a.toggle {
+    outline: none;
+    text-decoration: none;
+}
+
+span.query a.popup {
+    color: #de541e;
+    text-decoration: none;
+    outline: none;
+}
+
+span.term {
+    color: #a0a0a0;
+}
+
+a.term,a.field {
+    color: #333333;
+    text-decoration: none;
+    outline: none;
+}
+
+div#hostsTab div#info a.term {
+    color: #105892;
+    font-weight: bold;
+}
+
+a.term:hover {
+    background: yellow;
+}
+
+.actions {
+    border-left: 1px solid #a0a0a0; 
+    padding-left: 10px;
+}
+
+div#slider {
+    width: 90%; 
+    height: 6px;
+    position: relative;
+    background: #bbbbbb;
+    margin-left: 40px;
+}
+
+.ui-slider-handle {
+    width: 16px;
+    height: 12px;
+    position: absolute;
+    top: -3px;
+    background: #FF8A47;
+    border: 1px solid #808080;
+    -moz-border-radius: 4px;
+    outline: none;
+}
+
+.cloud a {
+    line-height: 1em;
+}
+
+ul#menu {
+    border: 1px solid #999999;
+    background: #ffffff;
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+ul#menu li {
+    border: 1px solid #999999;
+    list-style-image: none;
+    list-style-type: none;
+    list-style-position: outside;
+    padding: 1px;
+}
+
+ul#menu li:hover {
+    background: #ff8a47;
+}
+
+ul#menu a {
+    padding-left: 5px;
+    padding-right: 5px;
+    outline: none;
+    text-decoration: none;
+}
