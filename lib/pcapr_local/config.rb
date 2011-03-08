@@ -38,6 +38,39 @@ module Config
         }
     }
 
+    # Exit unless we are on Linux (the xtractr exe is linux only).
+    def self.check_platform
+        if not RUBY_PLATFORM =~ /linux/i
+            $stderr.puts "Sorry, pcapr.Local only runs on linux :("
+            exit 1
+        end
+    end
+    check_platform
+
+    # Exit unless tshark is installed.
+    def self.check_tshark
+        if not system('tshark -v > /dev/null 2>&1')
+            $stderr.puts <<HERE
+
+pcapr.Local requires the tshark executable to function but tshark is either not
+installed or cannot be found in your PATH. Please install tshark and ensure
+that it is in your PATH.
+
+HERE
+
+            if system('which apt-get > /dev/null')
+                $stderr.puts <<HERE
+If tshark is not installed you may be able to install it with:
+  'sudo apt-get install tshark'
+
+HERE
+            end
+
+            exit 1
+        end
+    end
+    check_tshark
+
     # Return configuration as a Hash. Optionally takes an external
     # configuration file.
     def self.user_config_path
@@ -260,8 +293,7 @@ module Config
                 server.info
             rescue => e
                 err = "Could not connect to couchdb at #{uri}. Got error '#{e.message}'\n"
-                if system('which apt-get')
-                    install = "sudo apt-get install couchdb"
+                if system('which apt-get > /dev/null')
                     err << "If CouchDB is not installed you may be able to install it with:\n"
                     err << "  'sudo apt-get install couchdb'"
                 else

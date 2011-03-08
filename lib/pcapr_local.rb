@@ -30,14 +30,6 @@ module PcaprLocal
         end
     end
 
-    # pcapr.Local is Linux only (the xtractr exe is linux only).
-    def self.check_platform
-        if not RUBY_PLATFORM =~ /linux/
-            $stderr.puts "Sorry, pcapr.Local only runs on linux :("
-            exit 1
-        end
-    end
-
     # Start xtractr instance manager.
     def self.start_xtractr config
         xtractr_config = config['xtractr'].merge(
@@ -79,8 +71,6 @@ module PcaprLocal
     end
 
     def self.start config=nil
-        check_platform
-
         config ||= PcaprLocal::Config.config
         
         # Check that server is not already running.
