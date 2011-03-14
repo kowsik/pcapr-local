@@ -38,30 +38,35 @@ module Config
         }
     }
 
-    # Exit unless we are on Linux (the xtractr exe is linux only).
-    def self.check_platform
-        if not RUBY_PLATFORM =~ /linux/i
-            $stderr.puts "Sorry, pcapr.Local only runs on linux :("
-            exit 1
+
+    # Tuple of required dependencies and ubuntu package name
+    REQUIRED_EXES = [
+        ["tshark", "tshark"], 
+        ["zip",    "zip"],
+    ]
+
+    def self.assert_environment
+        check_platform
+
+        REQUIRED_EXES.each do |exe_package|
+            check_exe *exe_package
         end
     end
-    check_platform
 
-    # Exit unless tshark is installed.
-    def self.check_tshark
-        if not system('tshark -v > /dev/null 2>&1')
+    def self.check_exe exe, package_name
+        if not system "sh -c 'type #{exe} > /dev/null 2>&1'"
             $stderr.puts <<HERE
 
-pcapr.Local requires the tshark executable to function but tshark is either not
-installed or cannot be found in your PATH. Please install tshark and ensure
+pcapr.Local requires the #{exe} executable to function but #{exe} is either not
+installed or cannot be found in your PATH. Please install #{exe} and ensure
 that it is in your PATH.
 
 HERE
 
-            if system('which apt-get > /dev/null')
+            if system "sh -c 'type apt-get > /dev/null 2>&1'"
                 $stderr.puts <<HERE
-If tshark is not installed you may be able to install it with:
-  'sudo apt-get install tshark'
+If #{exe} is not installed you may be able to install it with:
+  'sudo apt-get install #{package_name}'
 
 HERE
             end
@@ -69,7 +74,15 @@ HERE
             exit 1
         end
     end
-    check_tshark
+
+    # Exit unless we are on Linux (the xtractr exe is linux only).
+    def self.check_platform
+        if not RUBY_PLATFORM =~ /linux/i
+            $stderr.puts "Sorry, pcapr.Local only runs on linux :("
+            exit 1
+        end
+    end
+
 
     # Return configuration as a Hash. Optionally takes an external
     # configuration file.

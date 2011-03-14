@@ -14,6 +14,8 @@ require 'optparse'
 require 'mu/pcap'
 require 'mu/scenario/pcap'
 
+PcaprLocal::Config.assert_environment
+
 options = {
     :isolate_l7 => false
 }

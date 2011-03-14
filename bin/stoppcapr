@@ -7,6 +7,8 @@ $: << libdir
 require 'pcapr_local'
 require 'optparse'
 
+PcaprLocal::Config.assert_environment
+
 include PcaprLocal
 
 config_file = nil
