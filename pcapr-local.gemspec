@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mu Dynamics"]
-  s.date = %q{2011-03-30}
+  s.date = %q{2011-03-31}
   s.description = %q{Index, Browse, and Query your vast pcap collection.}
   s.email = %q{nbaggott@gmail.com}
   s.executables = ["pcap2par", "startpcapr", "stoppcapr", "xtractr"]
