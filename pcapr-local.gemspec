@@ -5,22 +5,22 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pcapr-local}
-  s.version = "0.1.10"
+  s.version = "0.1.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mu Dynamics"]
-  s.date = %q{2011-03-31}
+  s.date = %q{2011-04-04}
   s.description = %q{Index, Browse, and Query your vast pcap collection.}
   s.email = %q{nbaggott@gmail.com}
   s.executables = ["pcap2par", "startpcapr", "stoppcapr", "xtractr"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.md"
+    "README.html"
   ]
   s.files = [
     ".document",
     "LICENSE.txt",
-    "README.md",
+    "README.html",
     "Rakefile",
     "VERSION",
     "bin/pcap2par",
