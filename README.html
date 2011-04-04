@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type" />
+  <title>Pcapr.Local</title>
+<style type="text/css">
+  
+
+#masthead{
+	margin: 0;
+	border-bottom: 1px solid #cccccc;
+	width: 600px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+}
+
+#content{
+	float: left;
+	width: 600px;
+	margin: 0;
+	padding: 0 3% 0 0;
+	line-height: 16px;
+}
+
+#siteInfo{
+	clear: both;
+	border: 1px solid #cccccc;
+	font-size: 75%;
+	color: #cccccc;
+	background-color:inherit;
+	padding: 10px 10px 10px 10px;
+	margin-top: 0px;
+	width: 600px;
+}
+
+body {
+	background-color: #FFFFFF;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	color: #333333;
+	left:auto;
+	top: auto;
+	bottom: auto;
+	margin: 10 0 0 10px;
+	right: auto;
+	width: 95%;
+}
+
+p {
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	text-align: left;
+	line-height: 16px;
+	width: auto;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding: 0px;
+}
+
+a:link, a:visited {
+	color: #3B6EBF;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #3B6EBF;
+	text-decoration: underline;
+	}
+
+
+.code{
+	font-family: Courier, monospace;
+	font-size: 9pt
+  }
+
+
+.note {
+	font-style: italic;
+	font-size: 9pt;
+	font-family: Helvetica, Arial, sans-serif;
+	margin-top: 10px;
+	margin-right: 0;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	width: 85%;
+}
+
+li {
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	line-height: 16px;
+	width: auto;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 6px;
+	padding-top: 0px;
+	padding-right: 2%;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+
+ul {
+	list-style-type: disc;
+	list-style-position: outside;
+	margin-top: 8px;
+}
+
+.UI_link_blue {
+	color: #369;
+	text-decoration: underline;
+}
+
+.code_black_background {
+	border:1px solid silver;
+	font-size: 9pt;
+	width: 90%;
+	margin-top: 8px;
+	margin-left: 2%;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	font-family: Courier, monospace;
+	font-weight: normal;
+	background-color: #333;
+	color: #FFF;
+	padding: 4px;
+}
+
+
+h1{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #E95D20;
+	background-color: inherit;
+	padding-top: 5px;
+	background-image: none;
+	font-weight: bold;
+	margin: 0px;
+	width: 100%;
+}
+
+h2{
+	-moz-border-radius-bottomleft:0;
+	-moz-border-radius-bottomright:0;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-topright:8px;
+	color:#E95D20;
+	font-family:Arial, sans-serif;
+	font-size:10pt;
+	font-style:oblique;
+	margin:15 0 0 8px;
+	padding: 4 2 1 0px;
+}
+
+h3{
+	-moz-border-radius-bottomleft:0;
+	-moz-border-radius-bottomright:0;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-topright:8px;
+	border:1px solid silver;
+	font-size: 9pt;
+	color: #333333;
+	background-color: #E7E7E7;
+	font-weight: bold;
+	width: 580px;
+	padding-top: 4px;
+	padding-bottom: 1px;
+	padding-left: 6px;
+	margin-top: 20px;
+	margin-left: 6px;
+}
+
+h4{
+	font-size: 9pt;
+	font-weight: bold;
+	vertical-align: top;
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 15px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	color: #333333;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	border: #DFDFDF; }
+	
+	
+	h5{
+	font-size: 9pt;
+	color: #333333;
+	font-style: italic;
+	font-weight: normal;
+	margin: 6px 2px 4px 2px;
+	padding: 0px;
+}
+
+h6 {
+	border:1px solid silver;
+	font-size: 9pt;
+	color: #333333;
+	font-weight: normal;
+	background-color: #E7E7E7;
+	width: 96%;
+	padding-top: 4px;
+	padding-bottom: 1px;
+	padding-left: 4px;
+	margin-top: 15px;
+	margin-left: 4px;
+	margin-right:2px;
+	margin-bottom:1px;
+}
+
+/*********** begin wide tables ***********/
+table.wide {
+	background: #FFFFFF;
+	border-collapse: collapse;
+	align: left;
+	width: 99%;
+	margin-top: 3%;
+	margin-right: 1%;
+	margin-bottom: 3%;
+	margin-left: 15px;
+}
+table.wide th, table.wide td {
+  border: 1px silver solid;
+  padding: 0.2em;
+}
+
+table.wide td {
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	height: auto;
+	line-height:16px;
+	padding:6px 2px 2px 4px;
+	}
+
+table.wide th {
+	background: #E7E7E7;
+	text-align: left;
+	vertical-align: middle;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	color: #333333;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 2px;
+	padding-left: 6px;
+}
+
+#important{
+	float: clear;
+	color: #333333;
+	background-color: #e7eedc;
+	-moz-border-radius-bottomleft:0;
+	-moz-border-radius-bottomright:0;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-topright:8px;
+	border:1px solid silver;
+	font-size: 9pt;
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 2px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 35px;
+	margin-bottom: 15px;
+}
+
+/*********** end wide tables ***********/
+
+-->
+  </style>
+
+</head>
+<body>
+<div id="masthead">
+  <h1> <a name="#top" id="#top"></a>Pcapr.Local</h1>
+</div>
+<div id="content">
+  <p>Pcapr.Local is a gem that can automatically parse any packet capture and create a .par file  suitable for generating a Scenario in Mu Studio. It's designed to help you create Scenarios for  proprietary protocols that need custom Wireshark dissectors (pcapr.Local uses the locally-installed Wireshark application when indexing a .pcap).  </p>
+  <p>This document provides details for the following:</p>
+  <ul>
+    <li><a href="#pcapr_reqs">Requirements</a></li>
+    <li><a href="#pcapr_install">Installing &amp; Configuring</a></li>
+    <li><a href="#pcapr_using">Using</a> (viewing indexed pcaps and downloading PAR files)</li>
+    <li><a href="#pcapr_tips">Tips &amp; Tricks</a></li>
+  </ul>
+  <p>After installing and configuring Pcapr.Local, you can copy or move your pcap files to  the designated pcaps directory and Pcapr.Local will automatically index those files. Then, using a web browser, you can view the list of pcaps and their indexes, generate reports, or download the index as a PAR file that  you can use in Mu Studio to create a Scenario.</p>
+<h2><a name="pcapr_reqs"></a>Requirements</h2>
+<p>To  run pcapr.Local, you must install it on a system that also includes the following:</p>
+  <ul>
+    <li><strong>Linux</strong> (any flavor). You can install on a dedicated Linux system or in a virtual machine (VM). </li>
+    <li> <strong>Ruby</strong> (1.8.6, 1.8.7, 1.9.2) + <strong>Rubygems</strong> (1.3.7 or higher). When using Ruby 1.8.6, you must install<a href="http://rubyforge.org/frs/?group_id=126" target="_blank"> rubygems 1.3.7</a>.  Rubygems officially ceased support for ruby 1.8.6 as of the rubygems 1.4.0 release, so any version 1.4.x or higher will not install on a ruby 1.8.6 system.</li>
+    <li><strong>CouchDB</strong>.  Local and remote installations supported. If you have configured a username and password for the CouchDB service, you'll  need to provide those user credentials during the pcapr.Local gem installation.</li>
+    <li><strong>Wireshark</strong> (any version). Pcapr.Local will automatically use the installed version of <em>tshark</em> (a component of  Wireshark) to create the pcap indexes. When using a package manager (such as aptitude on Ubuntu), you might need to install tshark separately if it's not included as part of the Wireshark installation.</li>
+    <li><strong>Zip</strong> (any version). Pcapr.Local requires zip to create PAR files from your indexed pcaps.</li>
+    <li><strong>pcapr-local.gem</strong>. If the Linux system has Internet connectivity, you can use the gem command (supported by rubygems) to quickly download and install the Pcapr.Local gem. Otherwise, you'll need to manually download the gem, copy it to the Linux system, and install it.</li>
+  </ul>
+  <p><a href="#top">back to top &uarr;</a></p>
+  <p>&nbsp;</p>
+<h2><a name="pcapr_install" id="pcapr_install"></a>Installing &amp; Configuring</h2>
+  <p>After ensuring that your Linux system has all the necessary <a href="pcapr_local_about.html#pcapr_reqs">pre-requisites for running Pcapr.Local</a>, you can download the pcapr-local gem  and configure it for your system. </p>
+  <p>You can install and run pcapr.Local as a root user or as a regular (non-root) user. If the Linux system has Internet connectivity, you can use the gem command (supported by rubygems) to quickly download and install the Pcapr.Local gem. Otherwise, you'll need to manually download the gem and copy it to the Linux system before installing. </p>
+  <p>After installing the gem, configure the gem  by answering a few questions about where you want to store pcaps and indexes, the IP and port on which you want to access pcapr.Local, and the location of your CouchDB service (your answers are saved as a configuration file at: <strong><span class="code">~/.pcapr_local/config</span></strong>). When configuration is complete, the pcapr server process  continues running in the background, performing tasks such as checking for new pcaps and creating indexes. </p>
+  <p>To view  activities during configuration,  tail the pcapr.Local log file with the command: <strong><span class="code">tail -F ~/pcapr.Local/log/server.log</span></strong></p>
+<h3>To Install Pcapr.Local:</h3>
+<p>To install over the Internet:</p>
+<ol>
+  <li>Login to the Linux system on which you want to install pcapr.Local. </li>
+  <li>Install the pcapr-local gem using the gem command:
+    <p class="code_black_background"><strong>gem install pcapr-local</strong></p>
+    </li>
+</ol>
+<p>To install manually:</p>
+<ol>
+  <li>Download the pcapr.Local gem from <a href="http://rubygems.org/gems/pcapr-local">http://rubygems.org/gems/pcapr-local</a>. </li>
+  <li>Copy the gem to the Linux system on which you want to install the gem.</li>
+  <li>Login to the Linux system. </li>
+  <li>Change to the directory that contains the gem, then install it using the gem command:
+    <p class="code_black_background"><strong>gem install pcapr-local.gem</strong></p>
+  </li>
+</ol>
+<h3>To Configure Pcapr.Local:</h3>
+  <ol start="1">
+    <li>Run the configuration tool using the  startpcapr command:</li>
+  </ol>
+  <blockquote>
+    <p class="code_black_background"><strong>startpcapr</strong></p>
+    <p>This command starts the configuration process in which you'll be asked several questions. </p>
+  </blockquote>
+  <ol start="2">
+    <li>Answer the following seven (7) questions when prompted:</li>
+  </ol>
+  <table width="86%" border="1" cellpadding="1" cellspacing="1" class="wide">
+    <tr>
+      <th width="32%" scope="col">Question</th>
+      <th width="68%" scope="col"> Answer</th>
+    </tr>
+    <tr>
+      <td><h5>A. Where should pcapr.Local store user files?</h5></td>
+      <td><p>[/root/pcapr.Local] </p>
+        <p>Press <strong>Enter</strong> to accept this default. This sets the directory for storing all pcapr-related files.</p></td>
+    </tr>
+    <tr>
+      <td><h5>B. Which directory would you like to scan for indexable pcaps?</h5></td>
+      <td><p>[/root/pcapr.Local/pcaps]</p>
+        <p>Press <strong>Enter</strong> to accept this default. This sets the  directory for storing packet captures. Any .pcap file you place in this directory will be automatically indexed by pcapr.Local.</p></td>
+    </tr>
+    <tr>
+      <td><h5>C. Where would you like to store index files?</h5></td>
+      <td><p>[/root/pcapr.Local/indexes] </p>
+        <p>Press <strong>Enter</strong> to accept this default. This sets the directory for storing .pcap indexes. Indexes are automatically created for every .pcap file in the pcapr.Local/pcaps directory (or whatever directory you specified as the pcap repository in question A).</p></td>
+    </tr>
+    <tr>
+      <td><h5>D. What IP address should pcapr.Local run on?</h5></td>
+      <td><p>[127.0.0.1] </p>
+        <p>Press <strong>Enter</strong> to accept this default. This sets the IP address at which you can access pcapr.Local. For example, if you want to access pcapr.Local  at IP address 10.10.1.175 , you should enter that address here.</p></td>
+    </tr>
+    <tr>
+      <td><h5>E. What port should pcapr.Local listen on?</h5></td>
+      <td><p>[8080] </p>
+        <p>Press <strong>Enter</strong> to accept this default. This sets the port at which you can access pcapr.Local. For example, if you want to access pcapr.Local  at 10.10.1.175:8888, you should enter 8888 here.</p></td>
+    </tr>
+    <tr>
+      <td><h5>F. Pick a name for your CouchDB database (database will be created automatically).</h5></td>
+      <td><p>[pcapr_local_root] </p>
+        <p>Press <strong>Enter</strong> to accept this default. This creates a CouchDB database for pcaps and their indexes. </p></td>
+    </tr>
+    <tr>
+      <td><h5>G. pcapr.Local requires CouchDB to run. Where is your CouchDB server?</h5></td>
+      <td><p>[http://127.0.0.1:5984] </p>
+<p>If you have not yet configured a username and password for the CouchDB service, press <strong>Enter</strong> to accept this default. </p>
+        <p>However, if you <em><strong>have</strong></em> configured a username and password for the CouchDB service, you <em><strong>must</strong></em> provide those user credentials. Type the following and then press <strong>Enter</strong>:</p>
+        <p class="code_black_background"><strong>http://<em>user</em>:<em>password</em>@127.0.0.1:5984</strong></p></td>
+    </tr>
+  </table>
+  <ol start="3">
+    <li>After answering all questions, the following message confirms a successful installation: <br>
+    </li>
+  </ol>
+  <table width="92%" border="0" align="center" cellpadding="1" cellspacing="1">
+    <tr align="left">
+      <td width="72%" scope="col"><p class="code_black_background">Thank you. Configuration is saved at /root/.pcapr_local/config.<br>
+        Starting server at <strong><em>ip:port</em></strong><br>
+        Log is at /root/<strong><em>pcapr-directory</em></strong>/log/server.log<br>
+        Moving server process to the background. Run 'stoppcapr' to stop the server.</p></td>
+      <td width="28%" class="wide" scope="col"><p>Where <strong><em>ip:port</em></strong> are  values given in questions D and E. </p>
+        <p>Where<strong> <em>pcapr-directory</em></strong> is the value given in question A. </p></td>
+    </tr>
+  </table>
+<p>You are now ready to copy your .pcap files into the pcap directory, where pcapr.Local will automatically index them and create PAR files that you can use in Mu Studio to generate Scenarios. </p>
+  <p><a href="#top">back to top &uarr;</a></p>
+  <h2><a name="pcapr_using" id="pcapr_using"></a>Using Pcapr.Local</h2>
+<p>After installing and configuring pcapr.Local, you  can copy your .pcap files into the pcap directory, where pcapr.Local will automatically index them and create a .par file  (a Pcap ARchive, or PAR) that you can use in Mu Studio to generate Scenarios. (A  PAR file contains  dissection data from your local Wireshark installation, enabling you to use  custom dissectors for proprietary protocols.) </p>
+<p>When you've moved some pcaps into the pcaps directory, you are ready to use the  Pcapr.Local UI to view the indexes for those pcaps. The UI has three components: </p>
+<ul>
+  <li><strong>Browse</strong>. Displays a list of indexed pcaps, with their associated services and more recent index statistics. Select a pcap to view its details and/or download a PAR file for creating a Scenario.</li>
+  <li><strong>Folders</strong>. Displays a list of subdirectories in the pcap directory. By default, this list is empty but you can create new directories using the command line (<span class="code"><strong>mkdir</strong> <em>directory-name</em></span>). However, you'll need to put at least one pcap into a subdirectory before that directory will appear in the Folders tab. </li>
+  <li><strong>Services</strong>. Displays a tag cloud of services found in all indexed pcaps.</li>
+</ul>
+<p>Keep in mind that any changes made at the command line will take about a minute to appear in the UI. </p>
+<h3>To View Indexes &amp; Get PAR files:</h3>
+<ol>
+  <li>Add  packet captures into the pcaps directory (<strong>/root/pcapr.Local/pcaps</strong> by default). For example, to move all .pcap files from a local directory  to the pcaps folder on the Linux system, type:</li>
+</ol>
+<blockquote>
+  <p class="code_black_background"><strong>scp *.pcap root@<em>linux-ip</em>:pcapr.Local/pcaps</strong></p>
+</blockquote>
+<ol start="2">
+  <li>Wait about about a minute. Pcapr.Local checks the pcap directory every 60 seconds, indexing any new pcaps automatically. </li>
+  <li>Using your web browser, view the indexed pcaps at <strong>http://<em>ip</em>:<em>port</em>/home/index.html</strong> (where <em>ip:port</em> is IP address and port on the Linux system you configured during pcapr.Local configuration).  </li>
+  <li>Select the .pcap for which you want to view details: <br>
+    <ul>
+      <li>Clicking the <span class="UI_link_blue"><em>file</em>.pcap</span> link takes you to <a href="http://www.pcapr.net/">pcapr.net</a>, where you can use <a href="http://www.pcapr.net/xtractr">xtractor</a> to explore the indexed pcap. </li>
+      <li>Selecting <span class="UI_link_blue">indexed</span> returns you to the list of indexed pcaps. </li>
+    </ul>
+  </li>
+  <li>Click <span class="UI_link_blue">PAR file</span> to download the .par file for that .pcap. <br>
+  </li>
+  <li>In Mu Studio, import the .par file to create a Scenario. Because the packet capture has already been dissected, the  generation process skips flow selection and automatically displays the  Scenario Editor. </li>
+  </ol>
+<p><a href="#top">back to top &uarr;</a></p>
+<h2><a name="pcapr_tips" id="pcapr_tips"></a>Tips &amp; Tricks</h2>
+<p>The following section includes tips and tricks for using pcapr.Local. </p>
+<h4>Pcapr.Local Doesn't See  Pcaps</h4>
+<p>If you  added pcaps to the pcap directory but they don't appear in the list of indexed pcaps, try the following:</p>
+<ul>
+  <li>Wait about about a minute then check again. Pcapr.Local checks the pcap directory every 60 seconds, indexing any new pcaps automatically. </li>
+  <li>Check the config file (<strong><span class="code">~/.pcapr_local/config</span></strong>) to confirm that you are putting your pcaps in the correct directory.</li>
+</ul>
+<h4>Cannot Download a PAR File</h4>
+<p>If you get an error when attempting to download the  PAR file for a pcap, you probably don't have Zip installed on your Linux system. Try installing Zip (on Ubuntu, type <strong class="code">apt-get install zip</strong>) then try to download the PAR file again (you don't need to re-index the pcap). </p>
+<h4>Starting &amp; Stopping Pcapr.Local</h4>
+<ul>
+  <li>To stop the pcapr.Local server, use the command <strong class="code"> stoppcapr</strong></li>
+  <li>To start/restart the pcapr.Local server, use the command <strong class="code"> startpcapr</strong></li>
+</ul>
+<h4>Organizing Pcaps</h4>
+<p>When managing large numbers of pcaps, use the command line to create subdirectories in the pcaps directory (<span class="code"><strong>mkdir</strong> <em>directory-name</em></span>), then place pcaps files in these subdirectories. Pcapr.Local will automatically index any .pcap file in the main pcaps directory and any included subdirectories. </p>
+<p>In the pcapr.Local UI, select the Folders tab to view  a list of subdirectories in the pcap directory. However, you'll need to put at least one pcap into a subdirectory before that directory will appear in the Folders tab (and you might need to wait up to 60 seconds). </p>
+<h4>Getting PAR files From the Command Line</h4>
+<p>You can  create PAR files at the command line instead of using the pcapr.Local UI. </p>
+<ol>
+  <li>Login  to the Linux system running pcapr.Local. </li>
+  <li>Change to the pcaps directory. </li>
+  <li>Specify the name of the pcap using the pcap2par command:
+    <p class="code_black_background"><strong>pcap2par<em> filename</em>.pcap</strong></p>
+  </li>
+</ol>
+<blockquote>
+  <p> This command creates a  PAR file called <strong>export.par</strong> in the current directory. </p>
+  <p>To specify the location and name of the .par file, use a path argument with the pcap2par command. For example:</p>
+  <p class="code_black_background"><strong>pcap2par my-test-traffic.pcap ~/par_files/my-test-traffic.par </strong></p>
+  <p>This command creates a .par file named &quot;my-test-traffic.par&quot; in the &quot;par_files&quot; directory.</p>
+  </blockquote>
+<p><a href="#top">back to top &uarr;</a></p>
+</div>
+
+</body>
+</html>
