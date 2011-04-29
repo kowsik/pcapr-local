@@ -6,7 +6,7 @@ pcapr.Local is a tool for browsing and managing a large repository of packet cap
 
 In addition to managing pcaps, pcapr.Local helps you leverage your custom Wireshark dissectors to create Scenarios in Mu Studio. Just download the PAR file (Pcap ARchive) file created by pcapr.Local and import it into Mu Studio, where your Wireshark data guides Scenario creation.
 
-You can learn more about pcapr.Local in our announcement [blog](http://labs.mudynamics.com/2011/04/18/announcing-pcaprlocal/)
+You can learn more about pcapr.Local in our announcement [blog](http://labs.mudynamics.com/2011/04/18/announcing-pcaprlocal/).
 
 ## Dependencies
 
