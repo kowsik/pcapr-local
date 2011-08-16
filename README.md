@@ -8,7 +8,7 @@ In addition to managing pcaps, pcapr.Local helps you leverage your custom Wiresh
 
 You can learn more about pcapr.Local in our announcement [blog](http://labs.mudynamics.com/2011/04/18/announcing-pcaprlocal/).
 
-![pcapr.Local](http://labs.mudynamics.com/wp-content/uploads/2011/04/pcaprlocal.png)
+![pcapr.Local](http://blog.mudynamics.com/wp-content/uploads/2011/04/pcaprlocal.png)
 
 ## Dependencies
 
